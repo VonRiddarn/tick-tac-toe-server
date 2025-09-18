@@ -1,19 +1,20 @@
-namespace tick_tac_toe_server;
+namespace TimmyOhman.TicTacToeServer;
 
 public class Program
 {
-    public static void Main(string[] args)
-    {
-        var builder = WebApplication.CreateBuilder(args);
-        var app = builder.Build();
+	public static void Main(string[] args)
+	{
+		var builder = WebApplication.CreateBuilder(args);
+		var app = builder.Build();
 
-        app.MapGet("/", () => "Hello World!");
-		
-        app.MapGet("/test", (HttpRequest req) => {
+		app.MapGet("/", () => "Hello World!");
+
+		app.MapGet("/test", (HttpRequest req) => {
 			string? name = req.Query["name"];
 			return $"Hello, {name}!";
 		});
 
-        app.Run();
-    }
+		app.Run();
+	}
 }
+

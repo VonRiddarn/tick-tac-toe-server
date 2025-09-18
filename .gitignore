@@ -55,4 +55,6 @@ nunit-*.xml
 
 # Keep the database private and create it throug code at runtime
 [Tt]ic[Tt]ac[Tt]oe.db
-[Ss]ecrets.json
+
+# Environment variables (using DotNetEnv package)
+*.env

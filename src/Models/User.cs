@@ -1,3 +1,5 @@
+using TimmyOhman.TicTacToeServer.Services;
+
 namespace TimmyOhman.TicTacToeServer.Models
 {
 	public class User : Entity
@@ -10,5 +12,13 @@ namespace TimmyOhman.TicTacToeServer.Models
 		public string Token { get; set; } = string.Empty;
 
 		public User() {}
+
+		public User(string username, string passwordHash)
+		{
+			Username = username;
+			PasswordHash = passwordHash;
+			AuthToken = AuthServices.GenerateToken();
+			ExpiresAt = DateTime.Now.AddHours(Constants.TOKEN_LIFESPAN_HOURS);
+		}
 	}
 }

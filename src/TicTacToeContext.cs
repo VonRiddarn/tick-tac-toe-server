@@ -5,12 +5,9 @@ namespace TimmyOhman.TicTacToeServer
 {
 	public class TicTacToeContext : DbContext
 	{
-		public DbSet<Player> Players => Set<Player>();
+		public DbSet<User> Players => Set<User>();
 		public DbSet<Game> Games => Set<Game>();
 
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-		{
-			optionsBuilder.UseSqlite("Data Source=tictactoe.db");
-		}
+		public TicTacToeContext(DbContextOptions<TicTacToeContext> options) : base(options) {}
 	}
 }

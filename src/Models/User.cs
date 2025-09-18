@@ -1,11 +1,12 @@
 namespace TimmyOhman.TicTacToeServer.Models
 {
-	public class Player : Entity
+	public class User : Entity
 	{
-		public DateTime LastLogin { get; set; }
 		public string Username { get; set; } = "UNKNOWN_USER";
+		public string Password { get; set; } = "PASSWORD HASH";
+		public int SelectedImage {get; set; } = 0;
 		public string Token { get; set; } = string.Empty;
 
-		public Player() {}
+		public User() {}
 	}
 }

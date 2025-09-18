@@ -54,4 +54,5 @@ TestResult.xml
 nunit-*.xml
 
 # Keep the database private and create it throug code at runtime
-tictactoe.db
+[Tt]ic[Tt]ac[Tt]oe.db
+[Ss]ecrets.json

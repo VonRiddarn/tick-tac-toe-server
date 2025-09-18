@@ -8,18 +8,21 @@ public class Program
 	{
 		var builder = WebApplication.CreateBuilder(args);
 
-		// Scope the TicTacToeContext meaning each HTTPRequest has a fresh independent instance.
-		// This is because DBContexts are meant to be disposable bursts to avoid memory bloating and stale values
 		builder.Services.AddDbContext<TicTacToeContext>(options => options.UseSqlite("Data Source=tictactoe.db"));
-		
+		builder.Configuration.AddJsonFile("secrets.json", optional: false);
+
+
 		var app = builder.Build();
 
-		app.MapGet("/", () => "Hello World!");
+		// Using makes sure IDisposable die after the scope finsihes.
+		using (var scope = app.Services.CreateScope())
+		{
+			var db = scope.ServiceProvider.GetRequiredService<TicTacToeContext>();
+			db.Database.EnsureCreated();
+		}
 
-		app.MapGet("/test", (HttpRequest req) => {
-			string? name = req.Query["name"];
-			return $"Hello, {name}!";
-		});
+
+		app.MapGet("/", () => "Hello World!");
 
 		app.Run();
 	}

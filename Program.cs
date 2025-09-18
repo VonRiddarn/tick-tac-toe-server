@@ -6,11 +6,13 @@ public class Program
 {
 	public static void Main(string[] args)
 	{
+		// Load environment variables
+		DotNetEnv.Env.Load();
+
+
 		var builder = WebApplication.CreateBuilder(args);
 
 		builder.Services.AddDbContext<TicTacToeContext>(options => options.UseSqlite("Data Source=tictactoe.db"));
-		builder.Configuration.AddJsonFile("secrets.json", optional: false);
-
 
 		var app = builder.Build();
 
@@ -20,7 +22,6 @@ public class Program
 			var db = scope.ServiceProvider.GetRequiredService<TicTacToeContext>();
 			db.Database.EnsureCreated();
 		}
-
 
 		app.MapGet("/", () => "Hello World!");
 

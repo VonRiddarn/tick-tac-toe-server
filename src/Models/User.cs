@@ -3,7 +3,8 @@ namespace TimmyOhman.TicTacToeServer.Models
 	public class User : Entity
 	{
 		public string Username { get; set; } = "UNKNOWN_USER";
-		public string Password { get; set; } = "PASSWORD HASH";
+		public string PasswordHash { get; set; } = "PASSWORD HASH";
+		public string? AuthToken { get; set; }
 		public int SelectedImage {get; set; } = 0;
 		public string Token { get; set; } = string.Empty;
 

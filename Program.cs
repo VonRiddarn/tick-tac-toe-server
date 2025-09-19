@@ -1,7 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using TimmyOhman.TicTacToeServer.Controllers;
-using TimmyOhman.TicTacToeServer.DataTransferObjects;
-using TimmyOhman.TicTacToeServer.Services;
 
 namespace TimmyOhman.TicTacToeServer;
 

@@ -1,4 +1,4 @@
-namespace TimmyOhman.TicTacToeServer.DataTransferObjects
+namespace TimmyOhman.TicTacToeServer.Models.DataTransfer
 {
 	public class RegisterDto
 	{

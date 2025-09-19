@@ -1,5 +1,5 @@
 using System.Net;
-using TimmyOhman.TicTacToeServer.DataTransferObjects;
+using TimmyOhman.TicTacToeServer.Models.DataTransfer;
 using TimmyOhman.TicTacToeServer.Models;
 using TimmyOhman.TicTacToeServer.Models.Entities;
 

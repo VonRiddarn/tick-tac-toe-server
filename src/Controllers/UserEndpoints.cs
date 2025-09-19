@@ -13,7 +13,7 @@ namespace TimmyOhman.TicTacToeServer.Controllers
 			app.MapGet(ROOT, () => "Hello World!");
 
 			// TODO: Use a RegisterDTO later for safe hidden transfer. AND USE POST!
-			app.MapGet($"{ROOT}/register-user", (HttpContext ctx, TicTacToeContext db, string username, string password) => {
+			app.MapGet($"{ROOT}/register-user", (string username, string password, TicTacToeContext db) => {
 				return UserServices.Register(new RegisterDto(username, password), db);
 			});
 		}

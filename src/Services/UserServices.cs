@@ -2,6 +2,7 @@ using System.Net;
 using TimmyOhman.TicTacToeServer.Models.DataTransfer;
 using TimmyOhman.TicTacToeServer.Models;
 using TimmyOhman.TicTacToeServer.Models.Entities;
+using TimmyOhman.TicTacToeServer.Data;
 
 namespace TimmyOhman.TicTacToeServer.Services
 {

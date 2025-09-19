@@ -1,3 +1,4 @@
+using TimmyOhman.TicTacToeServer.Data;
 using TimmyOhman.TicTacToeServer.Models.DataTransfer;
 using TimmyOhman.TicTacToeServer.Services;
 

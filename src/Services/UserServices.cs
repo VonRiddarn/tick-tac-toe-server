@@ -29,15 +29,13 @@ namespace TimmyOhman.TicTacToeServer.Services
 			}
 			catch (Exception ex)
 			{
-				return Results.InternalServerError(new ApiResponse(HttpStatusCode.InternalServerError, $"An error occurred while registering the user: {ex.Message}"));
+				return Results.InternalServerError(new ApiResponse(HttpStatusCode.InternalServerError, $"An error occurred while registering the user: {ex.Message}."));
 			}
 
-			return Results.Ok(new {
-				status = "400",
-				title = "User created successfully",
+			return Results.Ok(new ApiResponse(HttpStatusCode.OK, "User created successfully.", new {
 				username = newUser.Username,
 				authToken = newUser.AuthToken
-			});
+			}));
 		}
 
 		public static IResult? ValidateRegisterDto(RegisterDto dto, TicTacToeContext db)

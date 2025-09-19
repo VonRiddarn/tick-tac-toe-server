@@ -9,6 +9,8 @@ namespace TimmyOhman.TicTacToeServer.Mapping
 		public static UserPublic ToPublic(this UserInternal u) => 
 		new UserPublic
 		{
+			Id = u.Id,
+			CreatedAt = u.CreatedAt,
 			Username = u.Username,
 			SelectedImage = u.SelectedImage
 		};

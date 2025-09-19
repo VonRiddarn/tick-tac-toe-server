@@ -21,7 +21,7 @@ namespace TimmyOhman.TicTacToeServer.Models.Entities
 		}
 	}
 
-	public class UserPublic
+	public class UserPublic : Entity
 	{
 		public string Username { get; set; } = "UNKNOWN_USER";
 		public int SelectedImage {get; set; } = 0;

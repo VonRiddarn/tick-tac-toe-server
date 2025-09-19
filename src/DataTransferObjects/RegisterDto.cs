@@ -6,5 +6,10 @@ namespace TimmyOhman.TicTacToeServer.DataTransferObjects
 		public string Password { get; set; } = string.Empty;
 
 		public RegisterDto() {}
+		public RegisterDto(string username, string password) 
+		{
+			Username = username;
+			Password = password;
+		}
 	}
 }

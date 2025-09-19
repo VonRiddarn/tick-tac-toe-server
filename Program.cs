@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TimmyOhman.TicTacToeServer.Controllers;
 using TimmyOhman.TicTacToeServer.Data;
+using TimmyOhman.TicTacToeServer.Utilities;
 
 namespace TimmyOhman.TicTacToeServer;
 
@@ -18,12 +19,7 @@ public class Program
 
 		var app = builder.Build();
 
-		// Using makes sure IDisposable die after the scope finsihes.
-		using (var scope = app.Services.CreateScope())
-		{
-			var db = scope.ServiceProvider.GetRequiredService<TicTacToeContext>();
-			db.Database.EnsureCreated();
-		}
+		InitializeDatabase.Initialize(app);
 
 		UserEndpoints.MapEndpoints(app);
 

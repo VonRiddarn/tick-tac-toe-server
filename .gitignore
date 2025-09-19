@@ -54,7 +54,7 @@ TestResult.xml
 nunit-*.xml
 
 # Keep the database private and create it throug code at runtime
-[Tt]ic[Tt]ac[Tt]oe.db
+*.db*
 
 # Environment variables (using DotNetEnv package)
 *.env

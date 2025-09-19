@@ -6,6 +6,8 @@ namespace TimmyOhman.TicTacToeServer.Services
 	public static class UserServices
 	{
 		public static User? GetUserByName(string username, TicTacToeContext db) => db.Users.FirstOrDefault((u) => u.Username == username);
+		
+		public static User? GetUserFromToken(TicTacToeContext db, string token) => db.Users.FirstOrDefault((u) => u.AuthToken == token && u.ExpiresAt < DateTime.Now);
 
 		public static IResult Register(RegisterDto dto, TicTacToeContext db)
 		{

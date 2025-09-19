@@ -1,4 +1,4 @@
-namespace TimmyOhman.TicTacToeServer.Models
+namespace TimmyOhman.TicTacToeServer.Models.Entities
 {
 	public class Game : Entity
 	{

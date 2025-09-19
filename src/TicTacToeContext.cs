@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using TimmyOhman.TicTacToeServer.Models;
+using TimmyOhman.TicTacToeServer.Models.Entities;
 
 namespace TimmyOhman.TicTacToeServer
 {

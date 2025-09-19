@@ -1,6 +1,6 @@
 using TimmyOhman.TicTacToeServer.Services;
 
-namespace TimmyOhman.TicTacToeServer.Models
+namespace TimmyOhman.TicTacToeServer.Models.Entities
 {
 	public class User : Entity
 	{

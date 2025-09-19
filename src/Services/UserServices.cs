@@ -1,4 +1,6 @@
+using System.Net;
 using TimmyOhman.TicTacToeServer.DataTransferObjects;
+using TimmyOhman.TicTacToeServer.Models;
 using TimmyOhman.TicTacToeServer.Models.Entities;
 
 namespace TimmyOhman.TicTacToeServer.Services
@@ -27,7 +29,7 @@ namespace TimmyOhman.TicTacToeServer.Services
 			}
 			catch (Exception ex)
 			{
-				return Results.Problem($"An error occurred while registering the user: {ex.Message}");
+				return Results.InternalServerError(new ApiResponse(HttpStatusCode.InternalServerError, $"An error occurred while registering the user: {ex.Message}"));
 			}
 
 			return Results.Ok(new {
@@ -41,11 +43,11 @@ namespace TimmyOhman.TicTacToeServer.Services
 		public static IResult? ValidateRegisterDto(RegisterDto dto, TicTacToeContext db)
 		{
 			if(dto.Username.Length < Constants.USERNAME_LENGTH_MIN)
-				return Results.BadRequest("Username must be at least 8 characters long!");
+				return Results.BadRequest(new ApiResponse(HttpStatusCode.BadRequest, "Username must be at least 8 characters long!"));
 			if(dto.Password.Length < Constants.PASSWORD_LENGTH_MIN)
-				return Results.BadRequest("Password must be at least 8 characters long!");
+				return Results.BadRequest(new ApiResponse(HttpStatusCode.BadRequest, "Password must be at least 8 characters long!"));
 			if(GetUserByName(dto.Username, db) != null)
-				return Results.Conflict("Username already exists!");
+				return Results.Conflict(new ApiResponse(HttpStatusCode.Conflict, "Username already exists!"));
 			
 			return null;
 		}

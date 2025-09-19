@@ -1,4 +1,4 @@
-using TimmyOhman.TicTacToeServer.DataTransferObjects;
+using TimmyOhman.TicTacToeServer.Models.DataTransfer;
 using TimmyOhman.TicTacToeServer.Services;
 
 namespace TimmyOhman.TicTacToeServer.Controllers
@@ -6,7 +6,7 @@ namespace TimmyOhman.TicTacToeServer.Controllers
 	public static class UserEndpoints
 	{
 		public const string ROOT = "/api/Users";
-		
+
 		public static void MapEndpoints(WebApplication app)
 		{
 			app.MapGet(ROOT, () => "Hello World!");

@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using TimmyOhman.TicTacToeServer.DataTransferObjects;
+using TimmyOhman.TicTacToeServer.Services;
 
 namespace TimmyOhman.TicTacToeServer;
 
@@ -24,6 +26,10 @@ public class Program
 		}
 
 		app.MapGet("/", () => "Hello World!");
+		// TODO: Use a RegisterDTO later for safe hidden transfer. AND USE POST!
+		app.MapGet("/api/register-user", (HttpContext ctx, TicTacToeContext db, string username, string password) => {
+			return UserServices.Register(new RegisterDto(username, password), db);
+		});
 
 		app.Run();
 	}
